@@ -12,6 +12,7 @@ class App extends Component {
       quotes: [],
       selectedQuoteIndex: null,
     };
+    this.assignNewQuoteIndex = this.assignNewQuoteIndex.bind(this);
     this.selectQuoteIndex = this.selectQuoteIndex.bind(this);
   }
 
@@ -21,9 +22,7 @@ class App extends Component {
     )
       .then((data) => data.json())
       .then((quotes) =>
-        this.setState({ quotes: quotes }, () => {
-          this.setState({ selectedQuoteIndex: this.selectQuoteIndex() });
-        })
+        this.setState({ quotes: quotes }, this.assignNewQuoteIndex)
       );
   }
 
@@ -44,6 +43,10 @@ class App extends Component {
     return random(0, this.state.quotes.length - 1);
   }
 
+  assignNewQuoteIndex() {
+    this.setState({ selectedQuoteIndex: this.selectQuoteIndex() });
+  }
+
   render() {
     return (
       <div className="App" id="quote-box">
@@ -53,7 +56,7 @@ class App extends Component {
         <div>
           <Button
             buttonDisplayName="Next Quote"
-            clickHandler={this.nextQuoteHandler}
+            clickHandler={this.assignNewQuoteIndex}
           />
         </div>
       </div>
