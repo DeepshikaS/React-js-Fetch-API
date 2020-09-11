@@ -4,6 +4,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import QuoteGenerator from "./components/QuoteGenerator";
 import { random } from "lodash";
 import "./App.css";
+import "typeface-roboto";
+import { Grid, withStyles } from "@material-ui/core";
+
+const styles = {
+  container: {
+    display: "flex",
+    height: "100vh",
+    alignItems: "center",
+  },
+};
 
 class App extends Component {
   constructor(props) {
@@ -49,14 +59,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" id="quote-box">
-        <QuoteGenerator
-          selectedQuote={this.selectedQuote}
-          assignNewQuoteIndex={this.assignNewQuoteIndex}
-        />
-      </div>
+      <Grid
+        className={this.props.classes.container}
+        id="quote-box"
+        justify="center"
+        container
+      >
+        <Grid item>
+          <QuoteGenerator
+            selectedQuote={this.selectedQuote}
+            assignNewQuoteIndex={this.assignNewQuoteIndex}
+          />
+        </Grid>
+      </Grid>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
