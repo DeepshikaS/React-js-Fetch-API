@@ -65,7 +65,7 @@ class App extends Component {
         justify="center"
         container
       >
-        <Grid item>
+        <Grid xs={11} lg={8} item>
           <QuoteGenerator
             selectedQuote={this.selectedQuote}
             assignNewQuoteIndex={this.assignNewQuoteIndex}
