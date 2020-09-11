@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 //import Fr from "./components/Fetch_api";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "./components/Button";
+import QuoteGenerator from "./components/QuoteGenerator";
 import { random } from "lodash";
 import "./App.css";
 
@@ -31,14 +31,14 @@ class App extends Component {
       !this.state.quotes.length ||
       !Number.isInteger(this.state.selectedQuoteIndex)
     ) {
-      return;
+      return undefined;
     }
     return this.state.quotes[this.state.selectedQuoteIndex];
   }
 
   selectQuoteIndex() {
     if (!this.state.quotes.length) {
-      return;
+      return undefined;
     }
     return random(0, this.state.quotes.length - 1);
   }
@@ -50,15 +50,10 @@ class App extends Component {
   render() {
     return (
       <div className="App" id="quote-box">
-        {this.selectedQuote
-          ? `"${this.selectedQuote.quote}" - ${this.selectedQuote.author}`
-          : ""}
-        <div>
-          <Button
-            buttonDisplayName="Next Quote"
-            clickHandler={this.assignNewQuoteIndex}
-          />
-        </div>
+        <QuoteGenerator
+          selectedQuote={this.selectedQuote}
+          assignNewQuoteIndex={this.assignNewQuoteIndex}
+        />
       </div>
     );
   }
