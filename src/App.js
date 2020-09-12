@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //import Fr from "./components/Fetch_api";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Quotegen from "./components/Quotegen/Quotegen";
+import Person from "./components/RandomPerson/Person";
 import { Switch, BrowserRouter, Route } from "react-router-dom";
 import "./App.css";
 
@@ -11,12 +12,12 @@ class App extends Component {
       <div className="app">
         <div id="navbar">
           <a href="Quotegen">Quote Generator</a>
-          <a href="#">Random Person</a>
+          <a href="Person">Random Person</a>
         </div>
         <BrowserRouter>
           <Switch>
             <Route path="/Quotegen" component={Quotegen} />
-            {/*<Route path="/Person" component={Person} /> */}
+            <Route path="/Person" component={Person} />
           </Switch>
         </BrowserRouter>
       </div>
