@@ -1,9 +1,13 @@
-body {
-  background-image: linear-gradient(to top, #df89b5 0%, #bfd9fe 100%);
+#navbar {
+  overflow: hidden;
+  background-color: rgb(245, 121, 99);
 }
 
-.bt {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
 }

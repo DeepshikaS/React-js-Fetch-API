@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import QuoteGenerator from "./QuoteGenerator";
 import { random } from "lodash";
-import "../../App.css";
+import "./QuoteGenerator";
 import "typeface-roboto";
 import { Grid, withStyles } from "@material-ui/core";
 
@@ -64,6 +64,7 @@ class Quotegen extends Component {
         id="quote-box"
         justify="center"
         container
+        style={{ backgroundColor: "#F6C5AF" }}
       >
         <Grid xs={11} lg={8} item>
           <QuoteGenerator
